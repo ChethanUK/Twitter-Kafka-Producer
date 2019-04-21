@@ -29,3 +29,15 @@ Read data from Twitter using hosebird and push data into Kafka topic
       
       connect-standalone connect-standalone.properties twitter.properties
       ```
+      
+### Partitions
+  - Each partitions can handle a throughtput of few MB/s
+  - Guidlines:
+    - For Small Clusters (less than 7 brokers):
+        `Number of partitions = 2 * number of brokers`
+    
+### Replication factor
+    - Should be atleast 2
+    - Never set it to 1 in production, get better broker if performance degrade over time
+            
+              
